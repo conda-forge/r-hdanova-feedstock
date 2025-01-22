@@ -1,4 +1,4 @@
-{% set version = '0.8.1' %}
+{% set version = "0.8.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/HDANOVA_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/HDANOVA/HDANOVA_{{ version }}.tar.gz
-  sha256: 759baad9adc7c741996d1bb21cb907b1ec255eb57debfe7f292ef467f915ccf0
+  sha256: 6c6e1d4ecfa578bdeacb4e9ea71fe630e5425bbafdbb484291929d2ffe5ac7c7
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -31,7 +31,7 @@ requirements:
     - r-rspectra
     - r-car
     - r-lme4
-    - r-mixlm >=1.4.0
+    - r-mixlm >=1.4.2
     - r-pls
     - r-pracma
     - r-progress
@@ -40,7 +40,7 @@ requirements:
     - r-rspectra
     - r-car
     - r-lme4
-    - r-mixlm >=1.4.0
+    - r-mixlm >=1.4.2
     - r-pls
     - r-pracma
     - r-progress
@@ -53,12 +53,8 @@ test:
 about:
   home: https://github.com/khliland/HDANOVA/
   license: GPL-2.0-or-later
-  summary: 'Functions and datasets to support Smilde, Marini, Westerhuis and Liland (2025, ISBN:
-    978-1-394-21121-0) "Analysis of Variance for High-Dimensional Data - Applications
-    in Life, Food and Chemical Sciences". This implements and imports a  collection
-    of methods for HD-ANOVA data analysis with common interfaces, result- and plotting
-    functions, multiple real data sets and four vignettes covering a range different
-    applications.'
+  summary: 'Functions and datasets to support Smilde, Marini, Westerhuis and Liland (2025, ISBN: 978-1-394-21121-0) "Analysis of Variance for High-Dimensional Data - Applications in Life, Food and Chemical Sciences". This implements and imports a  collection of methods for HD-ANOVA data analysis with common interfaces, result-
+    and plotting functions, multiple real data sets and four vignettes covering a range different applications.'
   license_family: GPL2
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
