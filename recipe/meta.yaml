@@ -28,19 +28,21 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
+    - r-mass
     - r-rspectra
     - r-car
     - r-lme4
-    - r-mixlm >=1.4.2
+    - r-mixlm >=1.4.3
     - r-pls
     - r-pracma
     - r-progress
   run:
     - r-base
+    - r-mass
     - r-rspectra
     - r-car
     - r-lme4
-    - r-mixlm >=1.4.2
+    - r-mixlm >=1.4.3
     - r-pls
     - r-pracma
     - r-progress
