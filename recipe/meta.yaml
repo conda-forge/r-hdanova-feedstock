@@ -1,4 +1,4 @@
-{% set version = "0.8.4" %}
+{% set version = "0.8.5" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,11 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/HDANOVA_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/HDANOVA/HDANOVA_{{ version }}.tar.gz
-  sha256: 5412995d60bd301eb40356728bf077acad57fb3217020b26981645e613fdf555
+  sha256: e441814526f1257232bc85bb6e87f61c8776f2b731baa81383390e1e071a75ac
 
 build:
-  number: 1
-  noarch: generic
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,28 +23,45 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}              # [not win]
+    - {{ stdlib('c') }}                # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib('m2w64_c') }}          # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-mass
     - r-rspectra
+    - r-rcpp
+    - r-rcpparmadillo
     - r-car
     - r-lme4
     - r-mixlm >=1.4.3
     - r-pls
     - r-pracma
     - r-progress
+    - r-reformulas
+    - libopenblas
   run:
     - r-base
     - r-mass
     - r-rspectra
+    - r-rcpp
+    - r-rcpparmadillo
     - r-car
     - r-lme4
     - r-mixlm >=1.4.3
     - r-pls
     - r-pracma
     - r-progress
+    - r-reformulas
 
 test:
   commands:
