@@ -13,7 +13,6 @@ source:
 
 build:
   number: 0
-  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,28 +23,44 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}              # [not win]
+    - {{ stdlib('c') }}                # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib('m2w64_c') }}          # [not win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-mass
     - r-rspectra
+    - r-rcpp
+    - r-rcpparmadillo
     - r-car
     - r-lme4
     - r-mixlm >=1.4.3
     - r-pls
     - r-pracma
     - r-progress
+    - r-reformulas
   run:
     - r-base
     - r-mass
     - r-rspectra
+    - r-rcpp
+    - r-rcpparmadillo
     - r-car
     - r-lme4
     - r-mixlm >=1.4.3
     - r-pls
     - r-pracma
     - r-progress
+    - r-reformulas
 
 test:
   commands:
