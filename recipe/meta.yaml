@@ -48,6 +48,7 @@ requirements:
     - r-pracma
     - r-progress
     - r-reformulas
+    - libblas
   run:
     - r-base
     - r-mass
