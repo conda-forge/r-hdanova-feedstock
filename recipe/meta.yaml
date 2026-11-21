@@ -1,4 +1,4 @@
-{% set version = "0.8.5" %}
+{% set version = "0.8.6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/HDANOVA_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/HDANOVA/HDANOVA_{{ version }}.tar.gz
-  sha256: e441814526f1257232bc85bb6e87f61c8776f2b731baa81383390e1e071a75ac
+  sha256: e856f0935da65304f4c12a0ca90be99a10be39e96dec764752348ff15abab198
 
 build:
   number: 0
